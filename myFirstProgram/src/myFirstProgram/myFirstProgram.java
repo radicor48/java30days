@@ -1,35 +1,28 @@
 package myFirstProgram;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class myFirstProgram {
 
-	public static void main(String[] args) {
-		System.out.println("Enter Your Name");
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner in = new Scanner(new File("Students.txt"));
 		
-		Scanner in = new Scanner(System.in);
-//		String s = in.nextLine();
+		List<String> Students = new ArrayList<String>();
 		
-//		if(s.equals("Rads")) {
-//			System.out.println("Hello Richard");
-//		}else if (s.equals("Nicky")){
-//			System.out.println("Hi Nicholas");
-//		}else {
-//			System.out.println("It is not equal");
-//		}
+		while(in.hasNextLine()) {
+			Students.add(in.nextLine());
+		}
 		
-		int i = 0;
-		do {
-			System.out.println("I is " + i);
-			i++;
-		
-		}while(i < 10) ;
-//		for(int x = 0; x <= 5; x++) {
-//			System.out.println("x is " + x);
-//		}
+		for(int i = 0; i < Students.size(); i++) {
+			System.out.println("Name:" + Students.get(i));
+		}
 		
 		in.close();
-		
 	}
 
 }
+
